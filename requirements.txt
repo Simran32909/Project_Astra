@@ -1,0 +1,7 @@
+pylint
+transformers
+peft
+trl
+torch
+llama-cpp-python
+bitsandbytes
