@@ -2,30 +2,24 @@ import os
 import subprocess
 import ast
 
+#Read contents of a file
 def read_file(path):
-    """
-    Reads the content of a file.
-    """
     try:
         with open(path, 'r') as f:
             return f.read()
     except Exception as e:
         return str(e)
 
+#Lints a Python file and returns the issues.
 def lint_code(file_path):
-    """
-    Lints a Python file and returns the issues.
-    """
     try:
         result = subprocess.run(['pylint', file_path], capture_output=True, text=True)
         return result.stdout
     except Exception as e:
         return str(e)
 
+#Extracts the body of a function from a Python file.
 def get_function_body(file_path, function_name):
-    """
-    Extracts the body of a function from a Python file.
-    """
     try:
         with open(file_path, 'r') as f:
             source = f.read()
@@ -43,10 +37,8 @@ def get_function_body(file_path, function_name):
     except Exception as e:
         return str(e)
 
+#Writes content to a file
 def write_file(path, content):
-    """
-    Writes content to a file.
-    """
     try:
         with open(path, 'w') as f:
             f.write(content)
