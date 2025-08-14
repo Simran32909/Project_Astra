@@ -1,7 +1,9 @@
 pylint
 transformers
 peft
-trl
 torch
 llama-cpp-python
 bitsandbytes
+datasets
+pytorch-lightning
+hydra-core
