@@ -23,7 +23,7 @@ peft:
   use_dora: True
 
 trainer:
-  output_dir: "Astra/astra-coder-v1-lightning-adapter"
+  output_dir: "models/astra-coder-v1-lightning-adapter"
   num_train_epochs: 5
   batch_size: 16
   per_device_train_batch_size: 8
@@ -34,3 +34,7 @@ trainer:
   precision: "bf16-mixed"
   logging_steps: 50
 
+wandb:
+  project: "Astra-Coder"
+  name: "astra-coder-v1-finetune"
+  entity: null
