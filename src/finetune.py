@@ -69,7 +69,7 @@ class AstraLightningModule(pl.LightningModule):
         optimizer = AdamW(self.model.parameters(), lr=self.cfg.optimizer.lr)
         return optimizer
 
-@hydra.main(config_path="configs", config_name="config.yaml")
+@hydra.main(config_path="../configs", config_name="config.yaml")
 def train(cfg:DictConfig):
     pl.seed_everything(cfg.seed)
 
