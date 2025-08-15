@@ -7,3 +7,5 @@ bitsandbytes
 datasets
 pytorch-lightning
 hydra-core
+wandb
+rich
