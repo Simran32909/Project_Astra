@@ -64,3 +64,6 @@ def run_agent():
 
         except Exception as e:
             print(f"Error: Could not execute the command. Details: {e}")
+
+if __name__ == "__main__":
+    run_agent()
