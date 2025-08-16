@@ -11,9 +11,10 @@ from pytorch_lightning.callbacks import ModelCheckpoint, RichProgressBar
 from pytorch_lightning.loggers import WandbLogger
 
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-from peft import get_peft_model
+from peft import get_peft_model, LoraConfig
 from datasets import Dataset
 from hydra.utils import get_original_cwd
+from bitsandbytes.optim import PagedAdamW8bit
 
 #This function formats sample required for training
 def format_prompt(sample):
@@ -47,8 +48,8 @@ class AstraLightningModule(pl.LightningModule):
             trust_remote_code=True,
         )
 
-        dora_config = DoraConfig(**self.cfg.peft)
-        self.model = get_peft_model(model, dora_config)
+        lora_config = LoraConfig(**self.cfg.peft)
+        self.model = get_peft_model(model, lora_config)
         self.model.print_trainable_parameters()
 
     #The forward pass is used only for inference
@@ -68,7 +69,7 @@ class AstraLightningModule(pl.LightningModule):
     #    return loss
     
     def configure_optimizers(self):
-        optimizer = AdamW(self.model.parameters(), lr=self.cfg.optimizer.lr)
+        optimizer = PagedAdamW8bit(self.model.parameters(), lr=2e-4)
         return optimizer
 
 @hydra.main(config_path="../configs", config_name="config.yaml")
@@ -120,7 +121,7 @@ def train(cfg:DictConfig):
     model=AstraLightningModule(cfg)
 
     checkpoint_callback = ModelCheckpoint(
-        dir_path=cfg.trainer.output_dir,
+        dirpath=cfg.trainer.output_dir,
         filename='astra-{epoch:02d}-{train_loss:.2f}',
         save_top_k=-1,
     )
