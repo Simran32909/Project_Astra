@@ -5,13 +5,15 @@ import hydra
 from omegaconf import DictConfig
 
 import pytorch_lightning as pl
+from pytorch_lightning import LightningModule
 from torch.utils.data import DataLoader
-from pl.callbacks import ModelCheckpoint, RichProgressBar
-from pl.loggers import WandbLogger
+from pytorch_lightning.callbacks import ModelCheckpoint, RichProgressBar
+from pytorch_lightning.loggers import WandbLogger
 
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-from peft import get_peft_model, DoraConfig
+from peft import get_peft_model
 from datasets import Dataset
+from hydra.utils import get_original_cwd
 
 #This function formats sample required for training
 def format_prompt(sample):
@@ -28,7 +30,7 @@ class AstraLightningModule(pl.LightningModule):
         self.cfg = cfg                      #use self.cfg for easy access
 
         self.tokenizer = AutoTokenizer.from_pretrained(
-            self.cfg.model.id
+            self.cfg.model.id,
             trust_remote_code=True
         )
 
@@ -73,11 +75,21 @@ class AstraLightningModule(pl.LightningModule):
 def train(cfg:DictConfig):
     pl.seed_everything(cfg.seed)
 
-    with open(cfg.data.path, "r") as f:
+    dataset_path = os.path.join(get_original_cwd(), cfg.data.path)
+    with open(dataset_path, "r") as f:
         data = json.load(f)
     
     def tokenize_function(examples):
-        formatted_prompt = [format_prompt(example) for example in examples]
+        formatted_prompt = [
+            format_prompt(
+                {
+                    "instruction": examples["instruction"][i],
+                    "input": "",
+                    "output": examples["output"][i],
+                }
+            )
+            for i in range(len(examples["instruction"]))
+        ]
         return tokenizer(
             formatted_prompt, 
             padding="max_length",
@@ -94,7 +106,7 @@ def train(cfg:DictConfig):
 
     dataset = Dataset.from_list(data)
     tokenized_dataset = dataset.map(tokenize_function, batched=True)            #contains token ids & attention masks [1s for real tokens, 0s for padding]
-    tokenized_dataset.set_format(                                               #converts only input_ids and attention_mask into PyTorch tensors
+    tokenized_dataset.set_format(                                                #converts only input_ids and attention_mask into PyTorch tensors
         type="torch",
         columns=["input_ids", "attention_mask"]
     )
