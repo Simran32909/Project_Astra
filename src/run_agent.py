@@ -59,11 +59,11 @@ def run_agent():
                 print("\n--- Tool Result ---")
                 print(result)
                 print("-------------------")
-            else:
-                print(f"Error: Tool '{tool_name}' not found in tools.py.")
+        else:
+            print(f"Error: Tool '{tool_name}' not found in tools.py.")
 
-        except Exception as e:
-            print(f"Error: Could not execute the command. Details: {e}")
+    except Exception as e:
+        print(f"Error: Could not execute the command. Details: {e}")
 
 if __name__ == "__main__":
     run_agent()
