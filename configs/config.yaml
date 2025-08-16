@@ -1,9 +1,11 @@
+seed: 42
+
 model:
   id: "bigcode/starcoder2-7b"
   max_seq_length: 512
 
 data:
-  path: "data/train.json"
+  path: "data/core_dataset.json"
   response_template: "\n### Response:"
 
 
