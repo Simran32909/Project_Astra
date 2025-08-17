@@ -59,6 +59,7 @@ class AstraLightningModule(pl.LightningModule):
         return self.model(**batch)
 
     def training_step(self, batch, batch_idx):
+        batch["labels"] = batch["input_ids"].clone()
         outputs = self.model(**batch)
         loss = outputs.loss
         self.log("train_loss", loss, prog_bar=True)
