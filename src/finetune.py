@@ -43,9 +43,11 @@ class AstraLightningModule(pl.LightningModule):
             bnb_4bit_compute_dtype=torch.bfloat16
         )
 
+
         model = AutoModelForCausalLM.from_pretrained(
-            self.cfg.model.id,
-            trust_remote_code=True,
+            self.cfg.model.id, 
+            quantization_config=bnb_config, 
+            trust_remote_code=True
         )
 
         lora_config = LoraConfig(**self.cfg.peft)
