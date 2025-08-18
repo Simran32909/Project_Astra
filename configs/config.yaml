@@ -5,7 +5,8 @@ model:
   max_seq_length: 512
 
 data:
-  path: "data/core_dataset.json"
+  train_path: "data/train_dataset.json"
+  val_path: "data/val_dataset.json"
   response_template: "\n### Response:"
 
 
@@ -29,14 +30,20 @@ trainer:
   num_train_epochs: 300
   batch_size: 8
   per_device_train_batch_size: 4
+  per_device_val_batch_size: 2   
   gradient_accumulation_steps: 4
   learning_rate: 2e-4
   accelerator: "gpu"
-  devices: [2,3]
+  strategy: "ddp"         
+  devices: 2
   precision: "bf16-mixed"
-  logging_steps: 50
+  logging_steps: 1
+  val_check_interval: 1.0
 
-wandb:
-  project: "Astra-Coder"
-  name: "astra-coder-v1-finetune"
-  entity: null
+logger:
+  wandb:
+    _target_: lightning.pytorch.loggers.WandbLogger # This key is now just for reference
+    project: "Astra-Coder"
+    name: "starcoder2-7b-lora-finetune"
+    entity: "BrainLoop"
+    log_model: false
