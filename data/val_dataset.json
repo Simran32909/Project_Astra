@@ -1,0 +1,402 @@
+[
+    {
+        "instruction": "review the code quality of 'test.log'",
+        "output": "lint_code('test.log')"
+    },
+    {
+        "instruction": "cat the file 'assets/style.css'",
+        "output": "read_file('assets/style.css')"
+    },
+    {
+        "instruction": "check 'app.js'",
+        "output": "lint_code('app.js')"
+    },
+    {
+        "instruction": "read the file 'docs/guide.md'",
+        "output": "read_file('docs/guide.md')"
+    },
+    {
+        "instruction": "save '[1, 2, 3]' to a file named 'lib/auth.py'",
+        "output": "write_file('lib/auth.py', '[1, 2, 3]')"
+    },
+    {
+        "instruction": "what does the function 'get_user' from the file 'config.json'",
+        "output": "get_function_body('config.json', 'get_user')"
+    },
+    {
+        "instruction": "analyze 'README.md'",
+        "output": "lint_code('README.md')"
+    },
+    {
+        "instruction": "what does the function 'get_user' from the file 'docs/guide.md'",
+        "output": "get_function_body('docs/guide.md', 'get_user')"
+    },
+    {
+        "instruction": "extract the function 'calculate_sum' from the file 'scripts/data_processing.py'",
+        "output": "get_function_body('scripts/data_processing.py', 'calculate_sum')"
+    },
+    {
+        "instruction": "lint 'src/utils.py'",
+        "output": "lint_code('src/utils.py')"
+    },
+    {
+        "instruction": "show me the implementation of 'process_request' from the file 'docs/guide.md'",
+        "output": "get_function_body('docs/guide.md', 'process_request')"
+    },
+    {
+        "instruction": "show me the file 'scripts/data_processing.py'",
+        "output": "read_file('scripts/data_processing.py')"
+    },
+    {
+        "instruction": "output 'testing' to a file named 'src/utils.py'",
+        "output": "write_file('src/utils.py', 'testing')"
+    },
+    {
+        "instruction": "save '# ASTRA GUIDE' to a file named 'api/v1/user_routes.py'",
+        "output": "write_file('api/v1/user_routes.py', '# ASTRA GUIDE')"
+    },
+    {
+        "instruction": "extract the function 'parse_data' from the file 'models/user.py'",
+        "output": "get_function_body('models/user.py', 'parse_data')"
+    },
+    {
+        "instruction": "get the function body of 'connect_to_redis' from the file 'index.html'",
+        "output": "get_function_body('index.html', 'connect_to_redis')"
+    },
+    {
+        "instruction": "create a file 'def my_func():\\n    pass' to a file named 'test.log'",
+        "output": "write_file('test.log', 'def my_func():\\n    pass')"
+    },
+    {
+        "instruction": "read the file 'test.log'",
+        "output": "read_file('test.log')"
+    },
+    {
+        "instruction": "output '[1, 2, 3]' to a file named 'docs/guide.md'",
+        "output": "write_file('docs/guide.md', '[1, 2, 3]')"
+    },
+    {
+        "instruction": "create a file 'testing' to a file named 'src/database.py'",
+        "output": "write_file('src/database.py', 'testing')"
+    },
+    {
+        "instruction": "lint 'test.log'",
+        "output": "lint_code('test.log')"
+    },
+    {
+        "instruction": "what does the function 'User' from the file 'app.js'",
+        "output": "get_function_body('app.js', 'User')"
+    },
+    {
+        "instruction": "get the contents of the file 'index.html'",
+        "output": "read_file('index.html')"
+    },
+    {
+        "instruction": "display the file 'docs/guide.md'",
+        "output": "read_file('docs/guide.md')"
+    },
+    {
+        "instruction": "show me the file 'test.log'",
+        "output": "read_file('test.log')"
+    },
+    {
+        "instruction": "write '[1, 2, 3]' to a file named 'api/v1/user_routes.py'",
+        "output": "write_file('api/v1/user_routes.py', '[1, 2, 3]')"
+    },
+    {
+        "instruction": "create a file 'import os' to a file named 'docker-compose.yml'",
+        "output": "write_file('docker-compose.yml', 'import os')"
+    },
+    {
+        "instruction": "show me the file 'api/v1/user_routes.py'",
+        "output": "read_file('api/v1/user_routes.py')"
+    },
+    {
+        "instruction": "extract the function 'render_template' from the file 'docs/guide.md'",
+        "output": "get_function_body('docs/guide.md', 'render_template')"
+    },
+    {
+        "instruction": "read the file 'README.md'",
+        "output": "read_file('README.md')"
+    },
+    {
+        "instruction": "read the file 'scripts/data_processing.py'",
+        "output": "read_file('scripts/data_processing.py')"
+    },
+    {
+        "instruction": "lint 'src/utils.py'",
+        "output": "lint_code('src/utils.py')"
+    },
+    {
+        "instruction": "put the text '{\"key\": \"value\"}' to a file named 'README.md'",
+        "output": "write_file('README.md', '{\"key\": \"value\"}')"
+    },
+    {
+        "instruction": "show me the file 'config.json'",
+        "output": "read_file('config.json')"
+    },
+    {
+        "instruction": "create a file 'Astra is an AI agent.' to a file named 'src/database.py'",
+        "output": "write_file('src/database.py', 'Astra is an AI agent.')"
+    },
+    {
+        "instruction": "print the file 'api/v1/user_routes.py'",
+        "output": "read_file('api/v1/user_routes.py')"
+    },
+    {
+        "instruction": "show me the file 'models/user.py'",
+        "output": "read_file('models/user.py')"
+    },
+    {
+        "instruction": "get the contents of the file 'config.json'",
+        "output": "read_file('config.json')"
+    },
+    {
+        "instruction": "cat the file 'requirements.txt'",
+        "output": "read_file('requirements.txt')"
+    },
+    {
+        "instruction": "review the code quality of 'main.py'",
+        "output": "lint_code('main.py')"
+    },
+    {
+        "instruction": "lint 'config.json'",
+        "output": "lint_code('config.json')"
+    },
+    {
+        "instruction": "write 'Astra is an AI agent.' to a file named 'lib/auth.py'",
+        "output": "write_file('lib/auth.py', 'Astra is an AI agent.')"
+    },
+    {
+        "instruction": "lint 'api/v1/user_routes.py'",
+        "output": "lint_code('api/v1/user_routes.py')"
+    },
+    {
+        "instruction": "review the code quality of 'main.py'",
+        "output": "lint_code('main.py')"
+    },
+    {
+        "instruction": "get the function body of 'handle_error' from the file 'test.log'",
+        "output": "get_function_body('test.log', 'handle_error')"
+    },
+    {
+        "instruction": "review the code quality of 'test.log'",
+        "output": "lint_code('test.log')"
+    },
+    {
+        "instruction": "display the file 'docker-compose.yml'",
+        "output": "read_file('docker-compose.yml')"
+    },
+    {
+        "instruction": "run pylint on 'models/user.py'",
+        "output": "lint_code('models/user.py')"
+    },
+    {
+        "instruction": "analyze 'config.json'",
+        "output": "lint_code('config.json')"
+    },
+    {
+        "instruction": "check 'assets/style.css'",
+        "output": "lint_code('assets/style.css')"
+    },
+    {
+        "instruction": "get the function body of 'get_user' from the file 'assets/style.css'",
+        "output": "get_function_body('assets/style.css', 'get_user')"
+    },
+    {
+        "instruction": "review the code quality of 'README.md'",
+        "output": "lint_code('README.md')"
+    },
+    {
+        "instruction": "show me the implementation of 'connect_to_redis' from the file 'docker-compose.yml'",
+        "output": "get_function_body('docker-compose.yml', 'connect_to_redis')"
+    },
+    {
+        "instruction": "output 'from flask import Flask' to a file named 'test.log'",
+        "output": "write_file('test.log', 'from flask import Flask')"
+    },
+    {
+        "instruction": "output '{\"key\": \"value\"}' to a file named 'src/utils.py'",
+        "output": "write_file('src/utils.py', '{\"key\": \"value\"}')"
+    },
+    {
+        "instruction": "create a file 'testing' to a file named 'README.md'",
+        "output": "write_file('README.md', 'testing')"
+    },
+    {
+        "instruction": "display the file 'requirements.txt'",
+        "output": "read_file('requirements.txt')"
+    },
+    {
+        "instruction": "display the file 'main.py'",
+        "output": "read_file('main.py')"
+    },
+    {
+        "instruction": "write 'testing' to a file named 'scripts/data_processing.py'",
+        "output": "write_file('scripts/data_processing.py', 'testing')"
+    },
+    {
+        "instruction": "review the code quality of 'assets/style.css'",
+        "output": "lint_code('assets/style.css')"
+    },
+    {
+        "instruction": "print the file 'requirements.txt'",
+        "output": "read_file('requirements.txt')"
+    },
+    {
+        "instruction": "write 'import os' to a file named 'config.json'",
+        "output": "write_file('config.json', 'import os')"
+    },
+    {
+        "instruction": "check 'api/v1/user_routes.py'",
+        "output": "lint_code('api/v1/user_routes.py')"
+    },
+    {
+        "instruction": "create a file 'import os' to a file named 'config.json'",
+        "output": "write_file('config.json', 'import os')"
+    },
+    {
+        "instruction": "cat the file 'src/utils.py'",
+        "output": "read_file('src/utils.py')"
+    },
+    {
+        "instruction": "write '{\"key\": \"value\"}' to a file named 'src/database.py'",
+        "output": "write_file('src/database.py', '{\"key\": \"value\"}')"
+    },
+    {
+        "instruction": "output 'hello world' to a file named 'docs/guide.md'",
+        "output": "write_file('docs/guide.md', 'hello world')"
+    },
+    {
+        "instruction": "analyze 'docs/guide.md'",
+        "output": "lint_code('docs/guide.md')"
+    },
+    {
+        "instruction": "cat the file 'db/queries.py'",
+        "output": "read_file('db/queries.py')"
+    },
+    {
+        "instruction": "get the contents of the file 'src/utils.py'",
+        "output": "read_file('src/utils.py')"
+    },
+    {
+        "instruction": "display the file 'app.js'",
+        "output": "read_file('app.js')"
+    },
+    {
+        "instruction": "save 'hello world' to a file named 'index.html'",
+        "output": "write_file('index.html', 'hello world')"
+    },
+    {
+        "instruction": "put the text 'Astra is an AI agent.' to a file named 'README.md'",
+        "output": "write_file('README.md', 'Astra is an AI agent.')"
+    },
+    {
+        "instruction": "get the function body of 'get_user' from the file 'assets/style.css'",
+        "output": "get_function_body('assets/style.css', 'get_user')"
+    },
+    {
+        "instruction": "run pylint on 'app.js'",
+        "output": "lint_code('app.js')"
+    },
+    {
+        "instruction": "print the file 'scripts/data_processing.py'",
+        "output": "read_file('scripts/data_processing.py')"
+    },
+    {
+        "instruction": "run pylint on 'models/user.py'",
+        "output": "lint_code('models/user.py')"
+    },
+    {
+        "instruction": "show me the implementation of 'parse_data' from the file 'main.py'",
+        "output": "get_function_body('main.py', 'parse_data')"
+    },
+    {
+        "instruction": "show me the file 'models/user.py'",
+        "output": "read_file('models/user.py')"
+    },
+    {
+        "instruction": "put the text 'from flask import Flask' to a file named 'db/queries.py'",
+        "output": "write_file('db/queries.py', 'from flask import Flask')"
+    },
+    {
+        "instruction": "put the text 'Astra is an AI agent.' to a file named 'src/utils.py'",
+        "output": "write_file('src/utils.py', 'Astra is an AI agent.')"
+    },
+    {
+        "instruction": "create a file 'from flask import Flask' to a file named 'assets/style.css'",
+        "output": "write_file('assets/style.css', 'from flask import Flask')"
+    },
+    {
+        "instruction": "output 'Astra is an AI agent.' to a file named 'lib/auth.py'",
+        "output": "write_file('lib/auth.py', 'Astra is an AI agent.')"
+    },
+    {
+        "instruction": "create a file 'def my_func():\\n    pass' to a file named 'src/utils.py'",
+        "output": "write_file('src/utils.py', 'def my_func():\\n    pass')"
+    },
+    {
+        "instruction": "write '{\"key\": \"value\"}' to a file named 'README.md'",
+        "output": "write_file('README.md', '{\"key\": \"value\"}')"
+    },
+    {
+        "instruction": "lint 'assets/style.css'",
+        "output": "lint_code('assets/style.css')"
+    },
+    {
+        "instruction": "read the file 'src/database.py'",
+        "output": "read_file('src/database.py')"
+    },
+    {
+        "instruction": "lint 'app.js'",
+        "output": "lint_code('app.js')"
+    },
+    {
+        "instruction": "what does the function 'initialize_logger' from the file 'src/database.py'",
+        "output": "get_function_body('src/database.py', 'initialize_logger')"
+    },
+    {
+        "instruction": "run pylint on 'scripts/data_processing.py'",
+        "output": "lint_code('scripts/data_processing.py')"
+    },
+    {
+        "instruction": "put the text '{\"key\": \"value\"}' to a file named 'config.json'",
+        "output": "write_file('config.json', '{\"key\": \"value\"}')"
+    },
+    {
+        "instruction": "show me the implementation of 'fetch_api_data' from the file 'main.py'",
+        "output": "get_function_body('main.py', 'fetch_api_data')"
+    },
+    {
+        "instruction": "cat the file 'scripts/data_processing.py'",
+        "output": "read_file('scripts/data_processing.py')"
+    },
+    {
+        "instruction": "print the file 'app.js'",
+        "output": "read_file('app.js')"
+    },
+    {
+        "instruction": "lint 'lib/auth.py'",
+        "output": "lint_code('lib/auth.py')"
+    },
+    {
+        "instruction": "get the contents of the file 'docs/guide.md'",
+        "output": "read_file('docs/guide.md')"
+    },
+    {
+        "instruction": "display the file 'src/utils.py'",
+        "output": "read_file('src/utils.py')"
+    },
+    {
+        "instruction": "show me the file 'models/user.py'",
+        "output": "read_file('models/user.py')"
+    },
+    {
+        "instruction": "extract the function 'connect_to_redis' from the file 'assets/style.css'",
+        "output": "get_function_body('assets/style.css', 'connect_to_redis')"
+    },
+    {
+        "instruction": "get the function body of 'login_user' from the file 'config.json'",
+        "output": "get_function_body('config.json', 'login_user')"
+    }
+]
