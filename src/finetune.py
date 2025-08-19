@@ -82,14 +82,12 @@ class AstraLightningModule(pl.LightningModule):
         val_loss = outputs.loss
         self.log("val_loss", val_loss, on_epoch=True, prog_bar=True)
 
-        # --- RECONSTRUCT SAMPLES FROM BATCH ---
         num_samples = len(batch['original_data']['instruction'])
         reconstructed_samples = [
             {'instruction': batch['original_data']['instruction'][i], 'output': batch['original_data']['output'][i]}
             for i in range(num_samples)
         ]
         
-        # --- CALCULATE EXACT MATCH (EM) ACCURACY ---
         # 1. Generate predictions from input_ids
         prompts = [format_prompt(s) for s in reconstructed_samples]
         
@@ -149,7 +147,7 @@ class AstraLightningModule(pl.LightningModule):
         self.validation_step_outputs.clear()
 
     def configure_optimizers(self):
-        optimizer = PagedAdamW8bit(self.parameters(), lr=self.cfg.trainer.learning_rate)
+        optimizer = PagedAdamW8bit(self.parameters(), lr=5e-5)
         return optimizer
 
 @hydra.main(config_path="../configs", config_name="config")
