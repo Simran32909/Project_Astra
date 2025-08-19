@@ -1,4 +1,4 @@
-seed: 42
+leaseed: 42
 
 model:
   id: "bigcode/starcoder2-7b"
@@ -27,22 +27,29 @@ peft:
 
 trainer:
   output_dir: "models/astra-coder-v1-lightning-adapter"
-  num_train_epochs: 300
+  num_train_epochs: 200
   batch_size: 8
-  per_device_train_batch_size: 4
-  per_device_val_batch_size: 2   
-  gradient_accumulation_steps: 4
-  learning_rate: 2e-4
-  accelerator: "gpu"
-  strategy: "ddp"         
-  devices: 2
+  per_device_train_batch_size: 1
+  per_device_val_batch_size: 2
+  gradient_accumulation_steps: 8
   precision: "bf16-mixed"
   logging_steps: 1
+  strategy: "ddp"
+  devices: 2
   val_check_interval: 1.0
+
+early_stopping:
+  monitor: "val_em_accuracy"
+  patience: 5
+  mode: "max"
+
+optimizer:
+  learning_rate: 5e-5 
+  weight_decay: 0.01
 
 logger:
   wandb:
-    _target_: lightning.pytorch.loggers.WandbLogger # This key is now just for reference
+    _target_: lightning.pytorch.loggers.WandbLogger
     project: "Astra-Coder"
     name: "starcoder2-7b-lora-finetune"
     entity: "BrainLoop"

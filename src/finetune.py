@@ -9,7 +9,7 @@ from hydra.core.hydra_config import HydraConfig
 
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
-from pytorch_lightning.callbacks import ModelCheckpoint, RichProgressBar
+from pytorch_lightning.callbacks import ModelCheckpoint, RichProgressBar, EarlyStopping
 from pytorch_lightning.loggers import WandbLogger
 
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
@@ -214,12 +214,20 @@ def train(cfg: DictConfig):
         mode="max"
     )
 
+    early_stopping_callback = EarlyStopping(
+        monitor=cfg.early_stopping.monitor,
+        patience=cfg.early_stopping.patience,
+        mode=cfg.early_stopping.mode,
+        verbose=True
+    )
+
     trainer = pl.Trainer(
         max_epochs=cfg.trainer.num_train_epochs,
         precision=cfg.trainer.precision,
-        callbacks=[checkpoint_callback, RichProgressBar()],
+        callbacks=[checkpoint_callback, RichProgressBar(), early_stopping_callback],
         log_every_n_steps=cfg.trainer.logging_steps,
         strategy=cfg.trainer.strategy,
+        devices=cfg.trainer.devices,
         logger=logger
     )
 
