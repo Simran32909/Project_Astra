@@ -9,7 +9,6 @@ data:
   val_path: "data/val_dataset.json"
   response_template: "\n### Response:"
 
-
 peft:
   r: 8
   lora_alpha: 32
@@ -27,7 +26,7 @@ peft:
 
 trainer:
   output_dir: "models/astra-coder-v1-lightning-adapter"
-  num_train_epochs: 200
+  num_train_epochs: 100
   batch_size: 16
   per_device_train_batch_size: 2
   per_device_val_batch_size: 2
@@ -45,7 +44,7 @@ early_stopping:
   mode: "max"
 
 optimizer:
-  learning_rate: 5e-5 
+  learning_rate: 1e-4 
   weight_decay: 0.01
 
 logger:
@@ -55,3 +54,6 @@ logger:
     name: "starcoder2-7b-lora-finetune"
     entity: "BrainLoop"
     log_model: false
+
+merge:
+  checkpoint_path: /ssd_scratch/jyothi.swaroopa/Simran/Astra/outputs/2025-08-19/05-02-12/checkpoints/astra-epoch=06-val_loss=0.08-val_em_accuracy=0.96.ckpt
